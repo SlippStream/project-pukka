@@ -1,0 +1,26 @@
+@import './base.css';
+
+#app {
+  margin: 0;
+  padding: 0px;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  font-weight: 900;
+  color: rgb(0, 0, 0);
+  transition: 0.4s;
+}
+
+@media (min-width: 1024px) {
+  body {
+    place-items: center;
+  }
+
+  #app {
+    grid-template-columns: 1fr 1fr;
+    padding: 0;
+  }
+}
