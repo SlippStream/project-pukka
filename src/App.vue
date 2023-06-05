@@ -136,6 +136,8 @@ header {
     width: fit-content;
     height: 100vh;
     align-items: baseline;
+    display: inline-block;
+    position: relative;
   }
 
   .navbar:hover .nav-option-text {
