@@ -62,14 +62,16 @@ header {
 }
 
 .navbar {
-  display: flex;
   width: 100vw;
+  position: absolute;
   height: fit-content;
-  align-items: center;
   justify-content: space-between;
   background-color: #840D10;
   color: white;
   z-index: 1;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .nav-menu {
@@ -101,6 +103,7 @@ header {
 
 .nav-menu a {
   color: white;
+  display: flex;
 }
 
 .nav-menu img {
@@ -109,28 +112,23 @@ header {
 
 .nav-menu li {
   padding: 0.5rem;
-  display: inline-block;
+  display: inline;
   flex: auto;
   width: 100%;
   height: 100%;
 }
 
 .nav-menu li a {
-  align-content: center;
-}
-
-input[type=checkbox] {
-  display: none;
-}
-
-.nav-hamburger {
-  display: none;
-  font-size: 2rem;
-  user-select: none;
+  justify-content: center;
 }
 
 @media (min-width: 1024px) {
 
+  header {  
+    width: fit-content;
+    height: fit-content;
+    display: inline-block;
+  }
   .nav-links {
     height: fit-content;
   }
@@ -157,6 +155,10 @@ input[type=checkbox] {
   .nav-menu li {
     margin: 0;
     display: block;
+  }
+
+  .nav-menu li a {
+    justify-content: left;
   }
 
   .nav-option-text {
