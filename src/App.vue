@@ -8,9 +8,9 @@ import { RouterLink, RouterView } from 'vue-router';
       <nav class="navbar">
         <ul class="nav-links">
           <div class="nav-menu">
-            <li><RouterLink to="/"><img class="nav-img" src="./assets/house.png"/><span class="nav-option-text">Home</span></RouterLink></li>
-            <li><RouterLink to="/game"><img class="nav-img" src="./assets/play.png"/><span class="nav-option-text">Game</span></RouterLink></li>
-            <li><RouterLink to="/compendium"><img class="nav-img" src="./assets/book.png"/><span class="nav-option-text">Compendium</span></RouterLink></li>
+            <li><RouterLink to="/"><img class="nav-img" src="./assets/icons/house.png"/><span class="nav-option-text">Home</span></RouterLink></li>
+            <li><RouterLink to="/game"><img class="nav-img" src="./assets/icons/play.png"/><span class="nav-option-text">Game</span></RouterLink></li>
+            <li><RouterLink to="/compendium"><img class="nav-img" src="./assets/icons/book.png"/><span class="nav-option-text">Compendium</span></RouterLink></li>
           </div>
         </ul>
       </nav>
