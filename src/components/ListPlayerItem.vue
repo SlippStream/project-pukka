@@ -4,6 +4,6 @@ defineProps(['player']);
 
 <template>
     <main>
-        {{ player.name }} -- {{ player.ability }}
+        {{ player.character.name }} -- {{ player.character.ability }}
     </main>
 </template>
