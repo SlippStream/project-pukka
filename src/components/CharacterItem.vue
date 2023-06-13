@@ -5,3 +5,4 @@ defineProps<{
 </script>
 
 <p>hello! {{character}}</p>
+
