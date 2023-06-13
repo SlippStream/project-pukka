@@ -1,27 +1,8 @@
 import { getCookie, setCookie } from "./cookies";
+import type {Character, GameCharacterData} from "./gameTypeDefs.d.ts";
+import {Team, Alignment} from "./gameEnums";
 
-enum Team {
-    TOWNSFOLK = "townsfolk",
-    OUTSIDER = "outsider",
-    MINION = "minion",
-    DEMON = "demon",
-    TRAVELLER = "traveller"
-}
-
-enum Alignment {
-    GOOD = "good",
-    EVIL = "evil"
-}
-
-interface RawCharacter {
-    id: string;
-    image: string;
-    name: string;
-    team: Team;
-    ability: string;
-}
-
-class GameCharacterData implements RawCharacter {
+class GameCharacter implements GameCharacterData {
     id: string;
     image: string;
     name: string;
@@ -29,7 +10,7 @@ class GameCharacterData implements RawCharacter {
     ability: string;
     alignment: Alignment;
     notes: string;
-    
+    playerName: string;
     constructor() {
         /* Inherited */
         this.id = "";
@@ -41,31 +22,48 @@ class GameCharacterData implements RawCharacter {
         /* New Fields */
         this.notes = "";
         this.alignment = Alignment.GOOD;
+        this.playerName = "Player";
+    }
+}
+module GameApi {
+    export class Game {
+        players: GameCharacterData[];
+    
+        constructor() {
+            this.players = this.loadGameFromCookie();
+        }
+    
+        loadGameFromCookie(): GameCharacterData[] {
+            const arr: GameCharacterData[] = [];
+            const game_s: string = getCookie("game");
+    
+            if (game_s == "") {
+                return [];
+            }
+            const json: any[] = JSON.parse(game_s);
+    
+            for (let i = 0; i < json.length; i++) {
+                arr.push(fromRawCharacter(json[i]));
+            }
+            console.log(arr);
+            return arr;
+        }
     }
 
-    static fromRawCharacter(raw: RawCharacter): GameCharacterData {
-        const gcd = new GameCharacterData();
+    export function fromRawCharacter(raw: Character | any): GameCharacterData {
+        const gcd = new GameCharacter();
         gcd.id = raw.id;
         gcd.image = raw.image;
         gcd.name = raw.name;
         gcd.ability = raw.ability;
         gcd.team = raw.team;
+
+        gcd.notes = raw?.notes ?? gcd.notes;
+        gcd.alignment = raw?.alignment ?? gcd.alignment;
+        gcd.playerName = raw?.playerName ?? gcd.playerName;
         return gcd;
     }
 }
 
-type Character = RawCharacter | GameCharacterData;
-
-function loadGameFromCookie(): GameCharacterData[] {
-    const game_s: string = getCookie("game");
-    if (game_s == "") {
-        return [];
-    }
-    const json = JSON.parse(game_s);
-    console.log(json);
-    return json;
-}
-
-let game = [];
-setCookie("game", '[{"id": "washerwoman","image": "./assets/icons/characters/washerwoman.png","name": "Washerwoman","team": "townsfolk","ability": "You start knowing that 1 of 2 players is a particular Townsfolk.", "notes": "hello", "alignment": "good"}]', 7);
-game = loadGameFromCookie();
+const GameState = new GameApi.Game();
+export default GameState;
