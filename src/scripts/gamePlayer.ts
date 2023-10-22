@@ -1,22 +1,14 @@
 import { getCookie, setCookie } from "./cookies";
-import type {GamePlayer as GamePlayerData, RawCharacter} from "./gameTypeDefs.d.ts";
+import type {GamePlayer as GamePlayerData, RawCharacter} from "./gameTypeDefs";
 import {Team, Alignment} from "./gameEnums";
 
 class GamePlayer implements GamePlayerData {
-    character: RawCharacter;
+    character_id: string;
     alignment: Alignment;
     notes: string;
     playerName: string;
     constructor() {
-        /* Inherited */
-        this.character = {
-            id: "",
-            name: "",
-            team: Team.TOWNSFOLK,
-            ability: "",
-            image: ""
-        }
-
+        this.character_id = "NOCHARACTER";
         /* New Fields */
         this.notes = "";
         this.alignment = Alignment.GOOD;
@@ -51,12 +43,7 @@ module GameApi {
     export function fromJsonObject(raw: any): GamePlayerData {
         const gcd = new GamePlayer();
 
-        gcd.character.id = raw.character.id;
-        gcd.character.image = raw.character.image;
-        gcd.character.name = raw.character.name;
-        gcd.character.ability = raw.character.ability;
-        gcd.character.team = raw.character.team;
-
+        gcd.character_id = raw.id ?? gcd.character_id;
         gcd.notes = raw?.notes ?? gcd.notes;
         gcd.alignment = raw?.alignment ?? gcd.alignment;
         gcd.playerName = raw?.playerName ?? gcd.playerName;
@@ -64,5 +51,6 @@ module GameApi {
     }
 }
 
+//TODO Write setCookie
 const GameState = new GameApi.Game();
 export default GameState;

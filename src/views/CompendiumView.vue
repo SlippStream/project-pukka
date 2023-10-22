@@ -1,8 +1,10 @@
 <script setup="ts">
-import CompendiumSearchBar from '../components/WikiSearchBarItem.vue';
+import CompendiumList from '../components/WikiListItem.vue';
 </script>
+<style type="">
+</style>
 <template>
     <main>
-        <CompendiumSearchBar/>
+        <CompendiumList/>
     </main>
 </template>

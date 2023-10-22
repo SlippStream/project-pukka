@@ -1,154 +1,132 @@
 [
   {
     "id": "washerwoman",
-    "image": "./assets/icons/characters/washerwoman.png",
     "name": "Washerwoman",
     "team": "townsfolk",
     "ability": "You start knowing that 1 of 2 players is a particular Townsfolk."
   },
   {
     "id": "librarian",
-    "image": "./assets/icons/characters/librarian.png",
     "name": "Librarian",
     "team": "townsfolk",
     "ability": "You start knowing that 1 of 2 players is a particular Outsider"
   },
   {
     "id": "investigator",
-    "image": "./assets/icons/characters/investigator.png",
     "name": "Investigator",
     "team": "townsfolk",
     "ability": "You start knowing that 1 of 2 players is a particular Minion."
   },
   {
     "id": "chef",
-    "image": "./assets/icons/characters/chef.png",
     "name": "Chef",
     "team": "townsfolk",
     "ability": "You start knowing how many pairs of evil players there are."
   },
   {
     "id": "empath",
-    "image": "./assets/icons/characters/empath.png",
     "name": "Empath",
     "team": "townsfolk",
     "ability": "Each night, you learn how many of your 2 alive neighbours are evil."
   },
   {
     "id": "fortuneteller",
-    "image": "./assets/icons/characters/fortuneteller.png",
     "name": "Fortune Teller",
     "team": "townsfolk",
     "ability": "Each night, choose 2 players: you learn if either is a Demon. There is a good player that registers as a Demon to you."
   },
   {
     "id": "undertaker",
-    "image": "./assets/icons/characters/undertaker.png",
     "name": "Undertaker",
     "team": "townsfolk",
     "ability": "Each night*, you learn which character died by execution today."
   },
   {
     "id": "monk",
-    "image": "./assets/icons/characters/monk.png",
     "name": "Monk",
     "team": "townsfolk",
     "ability": "Each night*, choose a player (not yourself): they are safe from the Demon tonight."
   },
   {
     "id": "ravenkeeper",
-    "image": "./assets/icons/characters/ravenkeeper.png",
     "name": "Ravenkeeper",
     "team": "townsfolk",
     "ability": "If you die at night, you are woken to choose a player: you learn their character."
   },
   {
     "id": "virgin",
-    "image": "./assets/icons/characters/virgin.png",
     "name": "Virgin",
     "team": "townsfolk",
     "ability": "The 1st time you are nominated, if the nominator is a Townsfolk, they are executed immediately."
   },
   {
     "id": "slayer",
-    "image": "./assets/icons/characters/slayer.png",
     "name": "Slayer",
     "team": "townsfolk",
     "ability": "Once per game, during the day, publicly choose a player: if they are the Demon, they die."
   },
   {
     "id": "soldier",
-    "image": "./assets/icons/characters/soldier.png",
     "name": "Soldier",
     "team": "townsfolk",
     "ability": "You are safe from the Demon."
   },
   {
     "id": "mayor",
-    "image": "./assets/icons/characters/mayor.png",
     "name": "Mayor",
     "team": "townsfolk",
     "ability": "If only 3 players live & no execution occurs, your team wins. If you die at night, another player might die instead."
   },
   {
     "id": "butler",
-    "image": "./assets/icons/characters/butler.png",
     "name": "Butler",
     "team": "outsider",
     "ability": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too."
   },
   {
     "id": "drunk",
-    "image": "./assets/icons/characters/drunk.png",
     "name": "Drunk",
     "team": "outsider",
     "ability": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not."
   },
   {
     "id": "recluse",
-    "image": "./assets/icons/characters/recluse.png",
     "name": "Recluse",
     "team": "outsider",
     "ability": "You might register as evil & as a Minion or Demon, even if dead."
   },
   {
     "id": "saint",
-    "image": "./assets/icons/characters/saint.png",
     "name": "Saint",
     "team": "outsider",
     "ability": "If you die by execution, your team loses."
   },
   {
     "id": "poisoner",
-    "image": "./assets/icons/characters/poisoner.png",
     "name": "Poisoner",
     "team": "minion",
     "ability": "Each night, choose a player: they are poisoned tonight and tomorrow day."
   },
   {
     "id": "spy",
-    "image": "./assets/icons/characters/spy.png",
     "name": "Spy",
     "team": "minion",
     "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead."
   },
   {
     "id": "scarletwoman",
-    "image": "./assets/icons/characters/scarletwoman.png",
     "name": "Scarlet Woman",
     "team": "minion",
     "ability": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don\u2019t count)"
   },
   {
     "id": "baron",
-    "image": "./assets/icons/characters/baron.png",
     "name": "Baron",
     "team": "minion",
     "ability": "There are extra Outsiders in play. [+2 Outsiders]"
   },
   {
     "id": "imp",
-    "image": "./assets/icons/characters/imp.png",
     "name": "Imp",
     "team": "demon",
     "ability": "Each night*, choose a player: they die. If you kill yourself this way, a Minion becomes the Imp."

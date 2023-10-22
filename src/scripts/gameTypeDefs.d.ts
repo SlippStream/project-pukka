@@ -6,8 +6,8 @@ export interface RawCharacter {
     ability: string;
 }
 
-export interface GamePlayer implements RawCharacter {
-    character: RawCharacter;
+export interface GamePlayer {
+    character_id: string;
     alignment: Alignment;
     notes: string;
     playerName: string;
