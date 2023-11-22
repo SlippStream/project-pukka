@@ -1,44 +1,38 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+  function openNavbar() {
+    const navbar = document.getElementById("navbar");
+    if (navbar == null) return;
+    navbar.style.width = "12rem";
+
+    const texts = document.getElementsByClassName("nav-option-text")
+    for (let i = 0; i < texts.length; i++) {
+        //texts[i].style.display = "inline-block";
+        //texts[i].style.opacity = "1";
+    }
+  }
+
+  function closeNavbar() {
+    const navbar = document.getElementById("navbar");
+    if (navbar == null) return;
+    navbar.style.width = "4rem";
+
+    const texts = document.getElementsByClassName("nav-option-text")
+    for (let i = 0; i < texts.length; i++) {
+        //texts[i].style.display = "none";
+        //texts[i].style.opacity = "0";
+    }
+  }
 </script>
-
-<template>
-  <div class="content-grid">
-    <header>
-      <nav class="navbar">
-        <ul class="nav-links">
-          <div class="nav-menu">
-            <li><RouterLink to="/"><img class="nav-img" src="./assets/icons/house.png"/><span class="nav-option-text">Home</span></RouterLink></li>
-            <li><RouterLink to="/game"><img class="nav-img" src="./assets/icons/play.png"/><span class="nav-option-text">Game</span></RouterLink></li>
-            <li><RouterLink to="/compendium"><img class="nav-img" src="./assets/icons/book.png"/><span class="nav-option-text">Compendium</span></RouterLink></li>
-          </div>
-        </ul>
-      </nav>
-    </header>
-    <div class="router-content">
-      <RouterView />
-    </div>
-  </div>
-</template>
-
-<style>
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-}
-</style>
-
 <style scoped>
-header {  
+header {
   width: fit-content;
   height: fit-content;
   display: inline-block;
 }
 
-.router-content {
-  flex: auto;
+#router-content {
   display: inline-block;
+  transition: width 0.5s;
 }
 
 .content-grid {
@@ -53,25 +47,22 @@ header {
   list-style: none;
 }
 
-.nav-option-text, .nav-img {
+.nav-option-text,
+.nav-img {
   display: inline-block;
 }
 
-.nav-option-text {
-  display: none;
-}
-
-.navbar {
-  width: 100vw;
-  position: absolute;
+#navbar {
+  width: auto;
   height: fit-content;
   justify-content: space-between;
-  background-color: #840D10;
+  background-color: #840d10;
   color: white;
   z-index: 1;
   bottom: 0;
   left: 0;
   right: 0;
+  transition: 0.5s;
 }
 
 .nav-menu {
@@ -81,8 +72,10 @@ header {
   font-size: 18px;
 }
 
-.nav-links, .nav-menu, .nav-menu li a {
-  height: inherit;
+.nav-links,
+.nav-menu,
+.nav-menu li a {
+  height: auto;
   width: inherit;
 }
 
@@ -107,7 +100,7 @@ header {
 }
 
 .nav-menu img {
-  filter: invert(100%)
+  filter: invert(100%);
 }
 
 .nav-menu li {
@@ -115,7 +108,6 @@ header {
   display: inline;
   flex: auto;
   width: 100%;
-  height: 100%;
 }
 
 .nav-menu li a {
@@ -123,25 +115,18 @@ header {
 }
 
 @media (min-width: 1024px) {
-
-  header {  
+  header {
     width: fit-content;
     height: fit-content;
     display: inline-block;
   }
-  .nav-links {
-    height: fit-content;
-  }
-  .navbar {
-    width: fit-content;
+
+  #navbar {
+    width: 4rem;
     height: 100vh;
     align-items: baseline;
     display: inline-block;
-    position: relative;
-  }
-
-  .navbar:hover .nav-option-text {
-    display: inline-block;
+    overflow-x: hidden;
   }
 
   .nav-menu {
@@ -153,9 +138,10 @@ header {
     padding: 0;
     transition: 0.5s;
   }
-  
+
   .nav-menu li {
     margin: 0;
+    width: 4;
     display: block;
   }
 
@@ -164,8 +150,38 @@ header {
   }
 
   .nav-option-text {
-    display: none;
-    vertical-align: 45%;
+    padding-left: 0.25rem;
+    position: relative;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    opacity: 1;
+    display: inline-block;
+  }
+
+  .nav-img {
+    width: 3.2rem;
+    aspect-ratio: initial;
   }
 }
 </style>
+<style src="./styles/global.css">
+</style>
+
+<template>
+  <div class="content-grid">
+    <header>
+      <nav id="navbar" @mouseover="openNavbar()" @mouseleave="closeNavbar()">
+        <ul class="nav-links">
+          <div class="nav-menu">
+            <li><RouterLink to="/"><img class="nav-img" src="./assets/icons/house.png"/><span class="nav-option-text">Home</span></RouterLink></li>
+            <li><RouterLink to="/game"><img class="nav-img" src="./assets/icons/play.png"/><span class="nav-option-text">Game</span></RouterLink></li>
+            <li><RouterLink to="/compendium"><img class="nav-img" src="./assets/icons/book.png"/><span class="nav-option-text">Compendium</span></RouterLink></li>
+          </div>
+        </ul>
+      </nav>
+    </header>
+    <div id="router-content">
+      <RouterView />
+    </div>
+  </div>
+</template>

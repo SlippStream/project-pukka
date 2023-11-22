@@ -1,6 +1,6 @@
-import { getCookie, setCookie } from "./cookies";
-import type {GamePlayer as GamePlayerData, RawCharacter} from "./gameTypeDefs";
-import {Team, Alignment} from "./gameEnums";
+import { getCookie } from "./cookies";
+import type {GamePlayer as GamePlayerData} from "./gameTypeDefs";
+import {Alignment} from "./gameEnums";
 
 class GamePlayer implements GamePlayerData {
     character_id: string;
