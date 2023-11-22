@@ -4,11 +4,9 @@
     if (navbar == null) return;
     navbar.style.width = "12rem";
 
-    const texts = document.getElementsByClassName("nav-option-text")
-    for (let i = 0; i < texts.length; i++) {
-        //texts[i].style.display = "inline-block";
-        //texts[i].style.opacity = "1";
-    }
+    const content = document.getElementById("router-content");
+    if (content == null) return;
+    content.style.marginLeft = "12rem";
   }
 
   function closeNavbar() {
@@ -16,11 +14,9 @@
     if (navbar == null) return;
     navbar.style.width = "4rem";
 
-    const texts = document.getElementsByClassName("nav-option-text")
-    for (let i = 0; i < texts.length; i++) {
-        //texts[i].style.display = "none";
-        //texts[i].style.opacity = "0";
-    }
+    const content = document.getElementById("router-content");
+    if (content == null) return;
+    content.style.marginLeft = "4rem";
   }
 </script>
 <style scoped>
@@ -28,11 +24,18 @@ header {
   width: fit-content;
   height: fit-content;
   display: inline-block;
+  margin: 0;
+  padding: 0;
 }
 
 #router-content {
   display: inline-block;
-  transition: width 0.5s;
+  transition: 0.5s;
+  max-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+  width: 100%;
 }
 
 .content-grid {
@@ -117,16 +120,19 @@ header {
 @media (min-width: 1024px) {
   header {
     width: fit-content;
-    height: fit-content;
-    display: inline-block;
+    height: 100%;
   }
 
   #navbar {
     width: 4rem;
-    height: 100vh;
+    min-height: 100vh;
     align-items: baseline;
-    display: inline-block;
-    overflow-x: hidden;
+    overflow: hidden;
+    position: absolute;
+  }
+
+  #router-content{
+    margin-left: 4rem;
   }
 
   .nav-menu {
