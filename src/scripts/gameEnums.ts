@@ -3,7 +3,8 @@ export enum Team {
     OUTSIDER = "outsider",
     MINION = "minion",
     DEMON = "demon",
-    TRAVELLER = "traveller"
+    TRAVELER = "traveler",
+    FABLED = "fabled",
 }
 
 export enum Alignment {
