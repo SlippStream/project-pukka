@@ -10,10 +10,6 @@ import CompendiumList from '../components/WikiListItem.vue';
     min-height: 100%;
     width: 100%;
 }
-
-#wiki-character-list .wiki-character-list-item {
-
-}
 @media (min-width: 1024px) {
     #wiki-character-list {
         grid-template-columns: auto auto;

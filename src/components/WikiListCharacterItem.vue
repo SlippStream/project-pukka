@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { Alignment } from '../scripts/gameEnums';
-import CharacterChip from '../components/WikiListCharacterChips.vue';
+import CharacterChip from '../components/WikiListCharacterChipItem.vue';
 
 defineProps(['character']);
 
