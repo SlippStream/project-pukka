@@ -1,5 +1,7 @@
 <script setup>
   function openNavbar() {
+    if (visualViewport.width < 1024) return;
+
     const navbar = document.getElementById("navbar");
     if (navbar == null) return;
     navbar.style.width = "12rem";
@@ -10,6 +12,7 @@
   }
 
   function closeNavbar() {
+    if (visualViewport.width < 1024) return;
     const navbar = document.getElementById("navbar");
     if (navbar == null) return;
     navbar.style.width = "4rem";
@@ -29,13 +32,15 @@ header {
 }
 
 #router-content {
-  display: inline-block;
+  position: relative;
   transition: 0.5s;
-  max-height: 100vh;
+  max-height: 90vh;
   overflow-y: scroll;
   overflow-x: hidden;
   margin: 0;
   width: 100%;
+  margin-top: 3rem;
+  margin-left: 0rem;
 }
 
 .content-grid {
@@ -56,16 +61,18 @@ header {
 }
 
 #navbar {
-  width: auto;
-  height: fit-content;
+  width: 100vw;
+  height: 3rem;
   justify-content: space-between;
-  background-color: #840d10;
+  background-color: var(--color-navbar);
   color: white;
-  z-index: 1;
-  bottom: 0;
+  z-index: 1000;
+  top: 0;
   left: 0;
   right: 0;
   transition: 0.5s;
+  position:fixed;
+  overflow: hidden;
 }
 
 .nav-menu {
@@ -78,7 +85,7 @@ header {
 .nav-links,
 .nav-menu,
 .nav-menu li a {
-  height: auto;
+  height: 2.5rem;
   width: inherit;
 }
 
@@ -126,6 +133,7 @@ header {
   #navbar {
     width: 4rem;
     min-height: 100vh;
+    max-height: 100vh;
     align-items: baseline;
     overflow: hidden;
     position: absolute;
@@ -133,6 +141,9 @@ header {
 
   #router-content{
     margin-left: 4rem;
+    margin-top: 0rem;
+    max-height: 100vh;
+    height: 100%;
   }
 
   .nav-menu {
@@ -149,10 +160,12 @@ header {
     margin: 0;
     width: 4;
     display: block;
+    height: auto;
   }
 
   .nav-menu li a {
     justify-content: left;
+    height: auto;
   }
 
   .nav-option-text {
@@ -167,6 +180,9 @@ header {
   .nav-img {
     width: 3.2rem;
     aspect-ratio: initial;
+  }
+  #app {
+    height: 100vh;
   }
 }
 </style>

@@ -15,13 +15,12 @@ import CompendiumList from '../components/WikiListItem.vue';
         grid-template-columns: auto auto;
         column-gap: 2rem;
         justify-content: space-evenly;
+        min-height: 100vh;
     }
 }
 </style>
 <template>
     <div id="wiki-content-box">
-        <div id="wiki-character-list">
         <CompendiumList/>
-        </div>
     </div>
 </template>

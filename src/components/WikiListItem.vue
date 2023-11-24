@@ -4,16 +4,17 @@ import ListCharacter from "../components/WikiListCharacterItem.vue";
 import troubleBrewing from "../assets/scripts/tb.json";
 import {ref} from 'vue';
 function filter(arr, query) {
-    return arr.filter((ctx) => ctx.id.toLowerCase().includes(query));
+    return arr.filter((ctx) => ctx.id.toLowerCase().includes(query.trim()));
 }
 
 const searchText = ref("");
 </script>
 
+
 <template>
     <main>
         <SearchBar v-model="searchText"/>
-        <ul>
+        <ul id="wiki-character-list">
             <ListCharacter
                 v-for="character in filter(troubleBrewing, searchText)"
                 :key="character.name"

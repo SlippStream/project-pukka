@@ -33,7 +33,7 @@ function getAlignment(type: String): Alignment | null {
 
 <style scoped>
 .wiki-character-list-item {
-    width: 100vh;
+    width: 100vw;
     height: 7rem;
     background-size: 10rem;
     background-repeat: no-repeat;
